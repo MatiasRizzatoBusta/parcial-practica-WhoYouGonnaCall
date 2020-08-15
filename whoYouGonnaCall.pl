@@ -92,3 +92,15 @@ estaDispuestoAHacerlo(Persona,Cliente):-
     persona(Persona,_),
     tareaPedida(Cliente,_,_),
     criterioPersona(Persona,Cliente).
+
+
+/*
+para agregar una posible solucion para ordenar el cuarto sin usar una aspiradora haria lo siguiente:
+herramientasRequeridas(ordenarCuarto, [escoba, trapeador, plumero]).
+
+esto me permite no cambiar el predicado de puede realizar tarea (y en consecuencia cualuqier otro que lo use) ya que con el forall
+me fijo que la persona tenga todas las herramientas necesarias para dicha tarea. Entonces en el caso de tener que ordenar cuarto
+la persona que tenga escoba ,trapeador y plumero matchea por el caso agregado anteriormente y devuelve que el puede realizar la 
+tarea.
+
+*/
