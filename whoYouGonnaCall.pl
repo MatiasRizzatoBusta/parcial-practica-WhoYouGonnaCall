@@ -84,6 +84,9 @@ cuentaTotal(Cliente,CostoTotal):-
     findall(CostoDeLaTarea,(tareaPedida(Cliente,Tarea,Metros),costoDeLaTarea(Tarea,Metros,CostoDeLaTarea)),ListaDeCostosTareas),
     sumlist(ListaDeCostosTareas,CostoTotal).
 
+%busco los costos totales de cada tarea del encargo. el termino del medio (de donde va a sacar las cosas) busca la tarea y los 
+%metros de cada tarea de ESE CLIENTE, va a buscar los costots totales de cada tarea y los va a poner en la lista.
+
 costoDeLaTarea(Tarea,Metros,CostoDeLaTarea):-
     costo(Tarea,Costo),
     CostoDeLaTarea is (Costo * Metros).
@@ -98,7 +101,8 @@ estaDispuestoAHacerlo(Persona,Cliente):-
 para agregar una posible solucion para ordenar el cuarto sin usar una aspiradora haria lo siguiente:
 herramientasRequeridas(ordenarCuarto, [escoba, trapeador, plumero]).
 
-El uso de polimorfismo me permite no cambiar el predicado de puede realizar tarea (y en consecuencia cualuqier otro que lo use)
+El uso de polimorfismo me permite tratar a cada tarea de forma distinta 
+no cambiar el predicado de puede realizar tarea (y en consecuencia cualuqier otro que lo use)
 ya que con el forall me fijo que la persona tenga todas las herramientas necesarias para dicha tarea. Entonces en el caso de tener 
 que ordenar cuarto la persona que tenga escoba ,trapeador y plumero matchea por el caso agregado anteriormente y devuelve que el 
 puede realizar la tarea.
